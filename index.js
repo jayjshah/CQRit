@@ -5,7 +5,6 @@ const morgan=require('morgan')
 const authRoutes=require('./routes/auth-route')
 const cookieParser=require('cookie-parser')
 const { requireAuth, checkUser }=require('./middlewares/authware')
-const { check_xss,check_url} =require('./public/static/js/xss');
 // const e = require('express');
 const exec = require('child_process').exec;
 const { spawn } = require('child_process');

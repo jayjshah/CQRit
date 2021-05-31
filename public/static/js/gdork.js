@@ -81,9 +81,8 @@ function googleHacking(option) {
         window.open(url, "_blank");
     }
     if (option == 15) {
-        var uni = "https://www.google.com/search?q=site:";
-        var dork = 'inurl /proc/self/cwd' + target + '"';
-        var url = uni + dork;
+        var dork = ' inurl /proc/self/cwd';
+        var url = link + dork;
         window.open(url, "_blank");
     }
                            
