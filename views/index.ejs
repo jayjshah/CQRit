@@ -1,0 +1,86 @@
+<%- include('hafoos/header') -%>
+
+<li><a href="/logout">logout</a></li>
+</ul>
+</nav>
+<div class="row">
+<div class="col-md-4">
+    <div class="column" id="fixed">
+    <ul class="navbar-nav mr-5 ml-auto">
+        <h2>Functionalities</h1>
+            <br>
+           
+<li><a href="#" id="googleDorks">Google dorking</a></li>  
+<li><a href="#" id="port">Port scanner</a></li>
+<li><a href="#" id="domain">subdomains</a></li>
+
+<!--
+<li><a href=#XSS id="xss">XSS</a></li>    
+<li><a href="#" id="bypass403">403 Bypass</a></li>
+<li><a href="#" id="hidden_param">Find Hidden Parameters</a></li>
+<li><a href="#" id="shodanDorks">Shodan Search Queries</a></li>
+<li><a href=#SQL>SQL Injection</a></li>
+<li><a href=#BAC>BAC</a></li>
+<li><a href=#CSRF>CSRF</a></li>
+<li><a href=#SSRF>SSRF</a></li>
+-->
+
+    </ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div class="col-md-8" >
+    
+<!-- <form action="/scan" method="POST" id="form1">
+    <h1 style="text-align: center;">Taget URL</h1>
+    <label>Please Enter URL to scan:</label>
+          <input type="text" id="scanner-input" name="dmn" placeholder="URL..." required>
+          <div class="url error"></div>
+          <br>
+          <button type="submit" id="btn" form="form1">Scan</button>
+</form> -->
+
+    
+<div class="column">
+    
+        <%- include('hafoos/port') -%>
+</div>
+<div class="column">
+        <%- include('hafoos/subs') -%>
+    </div>
+</div>
+
+
+
+<!--
+    <div id="SQL">
+    <h1>SQL</h1>
+</div>
+
+<div id="BAC">
+<h1>BAC
+</h1>
+</div>
+
+<div id="CSRF">
+    <h1>CSRF</h1>
+</div>
+
+<div id="SSRF">
+    <h1>SSRF</h1>
+</div>
+
+-->
+
+</div>
+</div>
+
+</body>
+<!-- <script src="/static/js/xss.js"></script>
+<script src="/static/js/xsslogic.js"></script> -->
+<%- include('hafoos/gdork') -%>
+<%- include('hafoos/footer') -%>
+
