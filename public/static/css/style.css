@@ -121,47 +121,6 @@ footer{
   color: #aaa;
 }
 
-.side-list label{
-	cursor: pointer;
-}
-.side-list label input[type="checkbox"]{
-	display: none;
-}
-.side-list label span{
-	position: relative;
-	display: block;
-	background: transparent;  
-	color: #bb0606;
-	font-size: 20px;
-	transition: 0.3s;
-	letter-spacing: 1px;
-	width: 274px;
-	padding-left: 15px;
-	border-radius: 10px;
-}
-.side-list:hover{
-	background-color: #FEE996;
-}
-.side-list label input[type="checkbox"]:checked + span{
-	background-color: #FEE996;
-}
-
-.drop-list label span{
-	position: relative;
-	display: block;
-	background: transparent;
-	color: rgb(11, 43, 148);
-	font-size: 20px;
-	transition: 0.3s;
-	width: 245px;
-	padding-left: 15px;
-	border-radius: 10px;
-}
-.drop-list label input[type="checkbox"]:checked + span{
-	background-color: #FEE996;
-}
-
-
 .googleDork{
 	height: 700px;
 	width: 900px;
