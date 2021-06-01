@@ -16,7 +16,8 @@ document.getElementById('btn').addEventListener('click', ()=>{
         divRes.innerHTML  = '<span class="red">The Website have XSS Vulnerability</span>'+
         '<img id="warning" src="./pictures/warning2.ico" alt="image not found">'
       }
-      else if(res.data === false){
+      else if(res.data === false)
+      {
         document.getElementById('loading-icon').style.display='none'
         divRes.innerHTML  = '<span class="green">The website is safe</span>'+
         '<img id="succeeded" src="./pictures/succeeded.png" height="64px" width="64px" alt="image not found">'

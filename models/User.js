@@ -31,7 +31,6 @@ userSchema.pre('save',async function(next){
     catch(error){
         next(error)
     }
-
 })
 
 userSchema.statics.login = async function(email, password) {

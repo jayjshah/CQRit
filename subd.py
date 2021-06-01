@@ -6,6 +6,10 @@ Created on Mon Feb  8 11:45:23 2021
 """
 
 import logging as log
+from msilib.schema import Font
+from tkinter import font
+from turtle import width
+from pyfiglet import Figlet
 import pyfiglet
 import requests
 import time
@@ -35,7 +39,7 @@ def banner():
 
 def parse_url(url):
     try:
-        host=urllib3.util.url.parse_url(url).host
+        host=urllib3.util.url.parse_url(url)
     except Exception as e:
         print('[*] Invalid domain try again')
         sys.exit(1)
