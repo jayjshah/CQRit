@@ -21,10 +21,10 @@ const app = express();
 
 app.use(express.json());
 app.use(morgan('dev'));
-//app.use(express.static('public'));
 app.use('/static', express.static(__dirname + '/public/static'));
 app.use('/css', express.static(__dirname + '/public/static/css'));
 app.use('/js', express.static(__dirname + '/public/static/'));
+//app.use('pics',express.static(__dirname+'/public/static/pics'))
 app.use(cookieParser());
 
 // view engine
@@ -43,6 +43,7 @@ app.get('*',checkUser);
 app.get('/', (req, res) => res.render('home'));
 
 app.post('/portscan',urlencodedParser,requireAuth,async(req,res)=>{
+    document.getElementById('loading-icon').style.display='block';
     try {
         var url=req.body.dmn2;
         console.log(url);
