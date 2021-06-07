@@ -2,7 +2,7 @@ const express = require('express');
 const morgan=require('morgan')
 const authRoutes=require('./routes/auth-route')
 const cookieParser=require('cookie-parser')
-const { requireAuth, checkUser }=require('./middlewares/authware')
+const { requireAuth,checkUser }=require('./middlewares/authware')
 const exec = require('child_process').exec;
 const { spawn } = require('child_process');
 const { readFileSync } = require('fs');
@@ -43,12 +43,11 @@ app.get('*',checkUser);
 app.get('/', (req, res) => res.render('home'));
 
 app.post('/portscan',urlencodedParser,requireAuth,async(req,res)=>{
-    document.getElementById('loading-icon').style.display='block';
+
     try {
         var url=req.body.dmn2;
         console.log(url);
-
-
+                
         const py=exec('portscanning.py '+'-d '+url,(err,stdout)=>{
             if(err){
                 res.send(err);

@@ -2,6 +2,7 @@ const { json } = require('body-parser');
 const User=require('../models/User');
 //const jwt=require('jsonwebtoken');
 const { signAccessToken }=require('./jwtoken');
+const crypto=require('crypto')
 
 const handleError=(err) => {
     console.log(err.message,err.code);
@@ -46,8 +47,9 @@ module.exports.signup_post =async (req,res) => {
     
       try {
         const user=await User.create({ email, password });
-        const tkn=await signAccessToken(user._id)
+        const tkn=await signAccessToken(user._id);
         res.cookie('jwt',tkn,{httponly:true})
+        console.log(user);
         res.status(201).json({user:user._id});
     } 
       catch (err) {
@@ -72,6 +74,7 @@ module.exports.login_post=async (req,res)=>{
     const user=await User.login(email,password)
     const tkn=await signAccessToken(user._id);
     res.cookie('jwt',tkn,{ httponly:true })
+    console.log(user);
     res.status(200).json({user:user._id})
   }
   catch (err) {

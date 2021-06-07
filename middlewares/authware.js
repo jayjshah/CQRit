@@ -32,8 +32,9 @@ const checkUser=(req,res,next)=>{
           res.locals.user = null;
           next();
         } else {
-          let user = await User.findById(decodedToken.id);
+          let user = await User.findById(decodedToken._id);
           res.locals.user = user;
+          console.log(user)
           next();
         }
       });

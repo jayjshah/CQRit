@@ -17,7 +17,8 @@ const userSchema=new Schema({
         required:[true,'Please Enter a Password'],
         minLength:[6,'Minimum Password length is 6 characters']
        //unique:true,
-    },
+    }
+//    isVerified: { type: Boolean, default: false },
 })
 
 userSchema.pre('save',async function(next){
