@@ -24,7 +24,7 @@ app.use(morgan('dev'));
 app.use('/static', express.static(__dirname + '/public/static'));
 app.use('/css', express.static(__dirname + '/public/static/css'));
 app.use('/js', express.static(__dirname + '/public/static/'));
-//app.use('pics',express.static(__dirname+'/public/static/pics'))
+app.use('/pics',express.static(__dirname+'/public/static/pics'))
 app.use(cookieParser());
 
 // view engine

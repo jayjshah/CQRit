@@ -57,6 +57,17 @@ form h2{
   border-radius: 10px;
   background: white;
 }
+
+.backgp{
+  background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.Aed9jeSNzxJzG2HSQSCP0AHaEu%26pid%3DApi&f=1);
+  opacity: .70;
+  background-repeat: no-repeat;
+}
+
+.hover:hover{
+  background-color: #FEE996;
+}
+
 input{
   padding: 10px 12px;
   border-radius: 4px;
