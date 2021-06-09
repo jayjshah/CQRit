@@ -1,12 +1,13 @@
-$(document).ready(function(){
-    $("#googleDorks").click(function () {
-            $("#googleDorksModal").modal('show')
-        })
-})
+// $(document).ready(function(){
+//     $("#googleDorks").click(function () {
+//             $("#googleDorksModal").modal('show')
+//         })
+// })
 
 function googleHacking(option) {
     var target = document.getElementById('dorkTarget').value;
     var link = "https://www.google.com/search?q=site:" + target;
+    
     if (option == 1) {
         var dork = "+ext:doc+|+ext:docx+|+ext:odt+|+ext:rtf+|+ext:sxw+|+ext:psw+|+ext:ppt+|+ext:pptx+|+ext:pps+|+ext:csv+|+ext:txt+|+ext:pdf";
         var url = link + dork;

@@ -64,6 +64,26 @@ app.post('/portscan',urlencodedParser,requireAuth,async(req,res)=>{
         console.log(err)
     }
 })
+
+app.get('/dorking',requireAuth,async (req,res)=>{
+    try {
+        res.render('gdork')
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+// app.post('/gdork',urlencodedParser,requireAuth,async (req,res)=>{
+//     try {
+//         var url=req.body.dm3;
+//         console.log(url)
+//         res.render('gdork')
+//     } catch (err) {
+//         console.log(err)
+//         res.send(err)
+//     }
+// })
+
 app.post('/subscan',urlencodedParser,requireAuth, async (req, res) => {
     
     try {

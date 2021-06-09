@@ -20,3 +20,5 @@ process.on('SIGINT',async()=>{
     await mongoose.connection.close()
     process.exit(0)
 })
+
+//mongodb+srv://admin:<password>@cluster0.evsmh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
