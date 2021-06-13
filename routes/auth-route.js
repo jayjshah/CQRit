@@ -1,5 +1,8 @@
 const { Router } = require('express')
 const authController=require('../Controller/authController')
+// const User = require("../models/Users");
+// const nodemailer = require('nodemailer');
+// const sendgridTransport = require('nodemailer-sendgrid-transport')
 
 const router=Router()
 

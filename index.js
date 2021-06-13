@@ -10,6 +10,7 @@ const fs = require('fs');
 const { stdout } = require('process');
 const { Script } = require('vm');
 const bodyParser = require('body-parser');
+const cors=require('cors')
 
 var urlencodedParser = bodyParser.urlencoded({
     extended: false
@@ -26,6 +27,7 @@ app.use('/css', express.static(__dirname + '/public/static/css'));
 app.use('/js', express.static(__dirname + '/public/static/'));
 app.use('/pics',express.static(__dirname+'/public/static/pics'))
 app.use(cookieParser());
+app.use(cors())
 
 // view engine
 app.set('view engine', 'ejs');
@@ -137,3 +139,8 @@ function mainfunction(a){
 app.use(authRoutes);
 
 
+// const emailverification= require("./routes/email_verification");
+// app.use("/api", emailverification);
+
+// const verify = require("./routes/email_verification");
+// app.use("/api", verify);

@@ -17,8 +17,11 @@ const userSchema=new Schema({
         required:[true,'Please Enter a Password'],
         minLength:[6,'Minimum Password length is 6 characters']
        //unique:true,
-    }
-//    isVerified: { type: Boolean, default: false },
+    },
+    isVerified: { type: Boolean, default: false },
+    Otp: {type: Number},
+
+    OtpExpires:{type: Date}
 })
 
 userSchema.pre('save',async function(next){
@@ -45,6 +48,14 @@ userSchema.statics.login = async function(email, password) {
     }
     throw Error('incorrect email');
   }
+
+userSchema.methods.otpgenerate=function(){
+  for (let i = 0; i < 6; i++ ) { 
+    this.Otp = Math.floor(Math.random()*10000);
+         }
+  this.OtpExpires = Date.now() +600000; //valid for 10 minutes 
+  return this.Otp
+}
   
 const User=mongoose.model('user',userSchema)
 
