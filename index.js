@@ -44,7 +44,7 @@ app.listen(PORT,()=>{
 app.get('*',checkUser);
 app.get('/', (req, res) => res.render('home'));
 
-app.post('/portscan',urlencodedParser,requireAuth,async(req,res)=>{
+app.post('/portscan',urlencodedParser,async(req,res)=>{
 
     try {
         var url=req.body.dmn2;
@@ -67,7 +67,7 @@ app.post('/portscan',urlencodedParser,requireAuth,async(req,res)=>{
     }
 })
 
-app.get('/dorking',requireAuth,async (req,res)=>{
+app.get('/dorking',async (req,res)=>{
     try {
         res.render('gdork')
     } catch (err) {
@@ -86,7 +86,7 @@ app.get('/dorking',requireAuth,async (req,res)=>{
 //     }
 // })
 
-app.post('/subscan',urlencodedParser,requireAuth, async (req, res) => {
+app.post('/subscan',urlencodedParser, async (req, res) => {
     
     try {
         var url=req.body.dmn1;
@@ -119,7 +119,7 @@ app.post('/subscan',urlencodedParser,requireAuth, async (req, res) => {
 
 });
     
-app.get('/Reports', requireAuth,async (req, res) =>{ 
+app.get('/scanner',async (req, res) =>{ 
 res.render('index');
 });
 
@@ -144,3 +144,8 @@ app.use(authRoutes);
 
 // const verify = require("./routes/email_verification");
 // app.use("/api", verify);
+
+
+app.use((req,res)=>{
+    res.status(404).render('./error/404')
+})
