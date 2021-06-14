@@ -44,13 +44,17 @@ app.listen(PORT,()=>{
 app.get('*',checkUser);
 app.get('/', (req, res) => res.render('home'));
 
+let removeHttp = function(link) { return link.replace(/^(https?:|)\/\//, ''); };
+let removeAll = function(link) { return link.replace(/^(?:https?:\/\/)?(?:www\.)?/i, ""); };
+
 app.post('/portscan',urlencodedParser,async(req,res)=>{
 
     try {
         var url=req.body.dmn2;
-        console.log(url);
-                
-        const py=exec('portscanning.py '+'-d '+url,(err,stdout)=>{
+        let s2=removeAll(url)
+        console.log(s2);
+                        
+        const py=exec('portscanning.py '+'-d '+s2,(err,stdout)=>{
             if(err){
                 res.send(err);
             }
@@ -90,9 +94,10 @@ app.post('/subscan',urlencodedParser, async (req, res) => {
     
     try {
         var url=req.body.dmn1;
-        console.log(url);
+        let s2=removeAll(url)
+        console.log(s2);
         
-        const pky=exec('subd.py '+ '-d ' + url,(err, stdout) => {
+        const pky=exec('subd.py '+ '-d ' + s2,(err, stdout) => {
             if (err) {
                 res.send(err);
             }
