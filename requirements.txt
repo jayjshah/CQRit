@@ -10,3 +10,5 @@ requests == 2.25.1
 # C:\Users\Annonymous\Documents\jwt1\portscanning.py: 12
 # C:\Users\Annonymous\Documents\jwt1\subd.py: 16
 urllib3 == 1.26.3
+
+##oin
