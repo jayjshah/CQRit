@@ -76,9 +76,9 @@ input{
   font-size: 1em;
   width: 100%;
 }
-#fixed{
+/* #fixed{
   position: fixed;
-}
+} */
 label{
   display: block;
   margin: 20px 0 10px;
