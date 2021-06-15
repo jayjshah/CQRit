@@ -32,7 +32,7 @@ app.use(cors())
 // view engine
 app.set('view engine', 'ejs');
 
-require('./Controller/init_mongodb')
+// require('./Controller/init_mongodb')
 
 
 const PORT=process.env.PORT || 4000
