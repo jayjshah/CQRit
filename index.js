@@ -5,9 +5,9 @@ const cookieParser=require('cookie-parser')
 const { requireAuth,checkUser }=require('./middlewares/authware')
 const exec = require('child_process').exec;
 const { spawn } = require('child_process');
-const { readFileSync } = require('fs');
-const fs = require('fs');
-const { stdout } = require('process');
+// const { readFileSync } = require('fs');
+// const fs = require('fs');
+// const { stdout } = require('process');
 //const { Script } = require('vm');
 const bodyParser = require('body-parser');
 const cors=require('cors')
@@ -54,7 +54,7 @@ app.post('/portscan',urlencodedParser,async(req,res)=>{
         let s2=removeAll(url)
         console.log(s2);
                         
-        const py=exec('portscanning.py '+'-d '+s2,(err,stdout)=>{
+        exec('portscanning.py '+'-d '+s2,(err,stdout)=>{
             if(err){
                 res.send(err);
             }
@@ -97,22 +97,26 @@ app.post('/subscan',urlencodedParser, async (req, res) => {
         let s2=removeAll(url)
         console.log(s2);
         
-        const pky=exec('subd.py '+ '-d ' + s2,(err, stdout) => {
-            if (err) {
-                res.send(err);
-            }
-            else {
-                    res.writeHead(200, {'Content-Type': 'text/plain'});
-                    res.write(stdout);
-                    return res.end();
-                }
+        // exec('subd.py '+ '-d ' + s2,(err, stdout) => {
+        //     if (err) {
+        //         res.send(err);
+        //     }
+        //     else {
+        //             res.writeHead(200, {'Content-Type': 'text/plain'});
+        //             res.write(stdout);
+        //             return res.end();
+        //         }
             
-        });
-        // const py=spawn('python',['subd.py','-d',req.body.dmn1]);
-
-        // py.stdout.on('data',function(data){
-        //     dataSend1=data;
         // });
+        const py=spawn('python',['subd.py','-d',s2]);
+
+        py.stdout.on('data',function(data){
+            res.writeHead(200, {'Content-Type': 'text/plain'});
+            res.write(`${data}`);
+            return res.end();
+        //    res.send(`${data}`)
+//            dataSend1=data;
+        });
         // py.on('close',(code)=>{
         // // send data to browser
         // res.sendFile(dataSend1)    }
