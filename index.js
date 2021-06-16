@@ -10,7 +10,8 @@ const { spawn } = require('child_process');
 // const { stdout } = require('process');
 //const { Script } = require('vm');
 const bodyParser = require('body-parser');
-const cors=require('cors')
+const cors=require('cors');
+const { countDocuments } = require('./models/User');
 
 var urlencodedParser = bodyParser.urlencoded({
     extended: false
@@ -113,20 +114,19 @@ app.post('/subscan',urlencodedParser, async (req, res) => {
         py.stdout.on('data',function(data){
             res.writeHead(200, {'Content-Type': 'text/plain'});
             res.write(`${data}`);
-            return res.end();
-        //    res.send(`${data}`)
-//            dataSend1=data;
+            dataSend1=data;
         });
 
-        py.stderr.on('data',(data)=>{
-            res.send(`${data}`)
-        });
-
-        py.on('error',(error)=>{res.send(`${error.message}`)})
+        py.on('exit',(code,signal)=>{
+            if(code) console.log(`process exit with code :${code}` )
+            if(signal) console.log(`process exit with code :${signal}` )
+            console.log('Done ✔')
+        })
         // py.on('close',(code)=>{
         // // send data to browser
-        // res.sendFile(dataSend1)    }
+        // res.send(dataSend1)    }
         // )
+
     }
     catch (err) {
         res.send(err)
