@@ -114,14 +114,14 @@ app.post('/subscan',urlencodedParser, async (req, res) => {
         py.stdout.on('data',function(data){
             res.writeHead(200, {'Content-Type': 'text/plain'});
             res.write(`${data}`);
-            dataSend1=data;
+            return data
         });
 
-        py.on('exit',(code,signal)=>{
-            if(code) console.log(`process exit with code :${code}` )
-            if(signal) console.log(`process exit with code :${signal}` )
-            console.log('Done ✔')
-        })
+        // py.on('exit',(code,signal)=>{
+        //     if(code) console.log(`process exit with code :${code}` )
+        //     if(signal) console.log(`process exit with code :${signal}` )
+        //     console.log('Done ✔')
+        // })
         // py.on('close',(code)=>{
         // // send data to browser
         // res.send(dataSend1)    }
