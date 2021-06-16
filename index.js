@@ -118,6 +118,9 @@ app.post('/subscan',urlencodedParser, async (req, res) => {
         // // send data to browser
         // res.send(dataSend1)    }
         // )
+        py.on('exit',()=>{
+            console.log('done ✔')
+        })
 
     }
     catch (err) {
