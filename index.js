@@ -111,12 +111,13 @@ app.post('/subscan',urlencodedParser, async (req, res) => {
         const py=spawn('python',['subd.py','-d',s2]);
 
         py.stdout.on('data',function(data){
-            dataSend1=data;
+            res.send(data) 
+            // dataSend1=data;
         });
-        py.on('close',(code)=>{
-        // send data to browser
-        res.send(dataSend1)    }
-        )
+        // py.on('close',(code)=>{
+        // // send data to browser
+        // res.send(dataSend1)    }
+        // )
 
     }
     catch (err) {
