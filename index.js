@@ -117,6 +117,12 @@ app.post('/subscan',urlencodedParser, async (req, res) => {
         //    res.send(`${data}`)
 //            dataSend1=data;
         });
+
+        py.stderr.on('data',(data)=>{
+            res.send(`${data}`)
+        });
+
+        py.on('error',(error)=>{res.send(`${error.message}`)})
         // py.on('close',(code)=>{
         // // send data to browser
         // res.sendFile(dataSend1)    }
