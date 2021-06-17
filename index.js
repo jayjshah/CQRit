@@ -111,7 +111,8 @@ app.post('/subscan',urlencodedParser, async (req, res) => {
         const py=spawn('python',['subd.py','-d',s2]);
 
         py.stdout.on('data',function(data){
-            res.send(data) 
+            res.send(data)
+            return;
             // dataSend1=data;
         });
         // py.on('close',(code)=>{
@@ -120,6 +121,7 @@ app.post('/subscan',urlencodedParser, async (req, res) => {
         // )
         py.on('exit',()=>{
             console.log('done ✔')
+            return;
         })
 
     }
