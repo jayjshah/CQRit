@@ -10,7 +10,8 @@ const { spawn } = require('child_process');
 // const { stdout } = require('process');
 //const { Script } = require('vm');
 const bodyParser = require('body-parser');
-const cors=require('cors')
+const cors=require('cors');
+const { time } = require('console');
 
 var urlencodedParser = bodyParser.urlencoded({
     extended: false
@@ -97,32 +98,32 @@ app.post('/subscan',urlencodedParser, async (req, res) => {
         let s2=removeAll(url)
         console.log(s2);
         
-        // exec('subd.py '+ '-d ' + s2,(err, stdout) => {
-        //     if (err) {
-        //         res.send(err);
-        //     }
-        //     else {
-        //             res.writeHead(200, {'Content-Type': 'text/plain'});
-        //             res.write(stdout);
-        //             return res.end();
-        //         }
+        exec('subd.py '+ '-d ' + s2,(err, stdout) => {
+            if (err) {
+                res.send(err);
+            }
+            else {
+                    res.writeHead(200, {'Content-Type': 'text/plain'});
+                    res.write(stdout);
+                    return res.end();
+                }
             
-        // });
-        const py=spawn('python',['subd.py','-d',s2]);
-
-        py.stdout.on('data',function(data){
-            res.send(data)
-            return;
-            // dataSend1=data;
         });
+        // const py=spawn('python',['subd.py','-d',s2]);
+
+        // py.stdout.on('data',function(data){
+        //     res.send(data)
+        //     return;
+        //     dataSend1=data;
+        // });
         // py.on('close',(code)=>{
         // // send data to browser
         // res.send(dataSend1)    }
         // )
-        py.on('exit',()=>{
-            console.log('done ✔')
-            return;
-        })
+        // py.on('exit',()=>{
+        //     console.log('done ✔')
+        //     return;
+        // })
 
     }
     catch (err) {

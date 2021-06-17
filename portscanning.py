@@ -41,6 +41,7 @@ def write_subs_to_file(ports,output_file):
 #        fp.write(banner())
         fp.close()
 
+fre_used_ports=[20,21,22,23,25,53,80,110,111,119,123,139,143,161,194,443,445,5984,6379,8080,]
 
 def main():
     banner()
@@ -55,9 +56,9 @@ def main():
     print("-" * 50) 
     
     try:
-        for port in range(1,81):
+        for port in fre_used_ports:
             s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-            socket.setdefaulttimeout(0.5) 
+            socket.setdefaulttimeout(0.5)
             
             result=s.connect_ex((str(g),port))
             
